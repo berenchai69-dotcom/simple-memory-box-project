@@ -2,7 +2,7 @@
 <html>
   <head>
      <title>memory box</title>
-      <link rel="stylesheet" href="03-menory-box.css">
+      <link rel="stylesheet" href="menory-box.css">
     </head>
   <body>
   <div class="all">
