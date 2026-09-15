@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>memory box</title>
+      <link rel="stylesheet" href="03-menory-box.css">
+    </head>
+  <body>
+  <div class="all">
+    <div class="sidebar-main">
+      <h1> your daily memory box</h1>
+    </div>
+    <div class="vireables">
+      <div class="sidebar-opptions">
+        <p>main page</p>
+        <button class="daily-option-button" 
+        onclick="
+         goToDailyOption();
+        "
+        > daily memories </button>
+        <p> focus more</p>
+        <button class="tasks-option-button"
+           onclick="
+         goToTasksOption();
+        "
+        >tasks</button> 
+        <button class="goals-option-button"
+           onclick="
+         goToGoalsOption();
+        "
+        >goals</button> 
+      </div>
+            <div id="daily-option" class="id-daily-option">
+                  <div id ="main-page" class="main-page" >
+                    <div>  
+                      <button class="add-button" onclick="
+                      
+                        goToAddPage();
+                        ">+</button>
+                    </div> 
+                    <div id="memories-container" class="memories-container"></div>
+                   
+              </div>
+              <div id="add-page" style="display:none"  class="add-page-html" >
+                  <div class="sidebar-add-page">
+                
+                    <button onclick="goToMainPage()">Cancel</button>
+                    <button onclick="saveMemory()">save </button>
+                    <div>
+                        <button class="dots-btn-add" onclick=" 
+                          showHideStatsMenu();
+                          " >&#8942</button>
+                        
+                        <div id="stats-menu" class="stats-dropdown" style="display: none;">
+                           <p>Charcters: <span id="char-count">0</span> </p>
+                           <p>Words: <span id="words-count">0</span> </p>
+                        </div>
+                    </div>
+                    <input placeholder="title " id="title-input" class="title-input">
+                </div>
+                <div class="textarea">
+                      <input id="photo-input" type="file" accept="image/*" class="add-photo-button">           
+                    <textarea placeholder=" discreption "  id="discreption-input" class="discreption-input"></textarea>
+                    <textarea placeholder="spacil event "  id="event-input" class="event-input"></textarea>
+                  </div>
+            </div>
+           
+            </div>
+             <div class="id-tasks-option" id="tasks-option" style="display:none;">
+              <input placeholder="todo name"
+                class="js-name-input">
+                <input class="js-date" type="date">
+                <button onclick="
+                  addTodo();
+                ">add</button>   
+                  <div class="js-names"></div>
+
+              </div>
+              <div class="id-goals-option " id="goals-option" style="display:none;">
+                <p> your goals list </p>
+                <input class="goals-input" placeholder="add a goal">
+                <input class="goals-date" placeholder=" ensure the deadline " >
+                <button onclick="
+                  addGoals();
+                ">add </button>
+                <div class="goals-list"></div>
+              </div>
+         </div>
+
+
+      </div> 
+    </div>
+  </div>  
+  
+      <!-- 
+    <div> 
+      <input placeholder="Add a task">
+    </div>
+    <div>
+    
+    </div> -->
+    <script src="memory-box.js"></script>
+   
+  </body>
+ </html>
