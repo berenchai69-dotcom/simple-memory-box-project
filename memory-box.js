@@ -83,8 +83,8 @@
           }
 
        
-       const memoryCard = [ ]
-      
+       const memoryCard = JSON.parse(localStorage.getItem("memoryCard")) || [];
+     
        function renderMemoryCard (){
             let memoryCardHTML = "" ;
             for ( let i = 0 ; i < memoryCard.length ; i++) 
@@ -99,6 +99,7 @@
                            <small>${event}</small>
                            <button onclick=" 
                            memoryCard.splice(${i}, 1);
+                           localStorage.setItem('memoryCard',JSON.stringify(memoryCard));
                            renderMemoryCard();"> Delete </button>
                         </div> 
                     `;
@@ -139,15 +140,20 @@
                   imageHTML
                });
         
-            renderMemoryCard();
+      
 
-
+            localStorage.setItem("memoryCard",JSON.stringify(memoryCard));
+              renderMemoryCard();
                 goToMainPage();
-            }     
+
+              
+            }  
+             renderMemoryCard();
+   
              //add page done now id changing
                      
-            const todoList =
-         [   ]
+            const todoList = JSON.parse(localStorage.getItem("todoList")) ||
+             [   ]
          function renderTodoList (){
             let todoListHTML = "" ;
             for ( let i = 0 ; i < todoList.length ; i++) 
@@ -158,6 +164,7 @@
                      ${name} ${date}
                         <button onclick="
                            todoList.splice(${i}, 1);
+                              localStorage.setItem('todoList',JSON.stringify(todoList));
                            renderTodoList();"> Delete </button>
                      </p>`;
                      todoListHTML += html;        }
@@ -176,9 +183,13 @@
                   date
                });
                inputElement.value='';
+
+               
+            localStorage.setItem("todoList",JSON.stringify(todoList));
             renderTodoList();
          }
-         const goals=[]
+              renderTodoList();
+         const goals= JSON.parse(localStorage.getItem("goals")) || []
 
                  function renderGoals (){
             let goalsHTML = "" ;
@@ -190,6 +201,7 @@
                      ${name} ${date}
                         <button onclick="
                            goals.splice(${i}, 1);
+                           localStorage.setItem('goals',JSON.stringify(goals))
                            renderGoals();"> Delete </button>
                      </p>`;
                      goalsHTML += html;        }
@@ -209,7 +221,9 @@
                });
                inputElement.value='';
                dateElement.value='';
+
+               localStorage.setItem("goals", JSON.stringify(goals));
             renderGoals();
          }
-      
+                  renderGoals();
                
